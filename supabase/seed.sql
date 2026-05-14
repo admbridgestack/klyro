@@ -1,0 +1,3 @@
+-- Seed file — run after migrations in local development.
+-- Production data is seeded via 0003_message_templates.sql.
+-- Add local test data here as needed.

@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  /* brand */
+  --color-violet: #6d64fb;
+  --color-violet-hover: #5d56d8;
+  --color-violet-soft: #8a83fc;
+  --color-violet-faint: #afaafd;
+  --color-navy: #14143a;
+
+  /* dark surfaces (default) */
+  --color-bg-base: #0a0a1f;
+  --color-bg-surface: #111131;
+  --color-bg-elevated: #222246;
+  --color-bg-hover: #303052;
+
+  /* text on dark */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #bdbdc8;
+  --color-text-muted: #858599;
+
+  /* light surfaces (optional booking-page theme) */
+  --color-bg-light: #fdfdfd;
+  --color-bg-light-surface: #ffffff;
+  --color-text-on-light: #14143a;
+  --color-text-on-light-muted: #5b5b73;
+
+  /* status */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #6d64fb;
+
+  /* radii */
+  --radius-card: 16px;
+  --radius-button: 12px;
+  --radius-pill: 999px;
+
+  /* typography */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* Borders & lines (not in @theme — used as CSS vars directly) */
+:root {
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(109, 100, 251, 0.32);
+  --border-on-light: rgba(20, 20, 58, 0.1);
+
+  /* Gradients */
+  --grad-brand: linear-gradient(135deg, #6d64fb 0%, #14143a 100%);
+  --grad-surface: linear-gradient(180deg, #111131 0%, #0a0a1f 100%);
+
+  /* Shadows */
+  --shadow-violet: 0 8px 32px rgba(109, 100, 251, 0.16);
+}
+
+/* Default dark theme — dashboard is dark-only for MVP */
+html {
+  background-color: #0a0a1f;
+  color: #bdbdc8;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-bg-base, #0a0a1f);
+  color: var(--color-text-secondary, #bdbdc8);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

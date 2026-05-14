@@ -1,0 +1,12 @@
+{
+  "common": {
+    "continue": "Continue",
+    "back": "Back",
+    "cancel": "Cancel",
+    "save": "Save"
+  },
+  "landing": {
+    "title": "Klyro",
+    "tagline": "Your business. Your clients. Your brand."
+  }
+}
