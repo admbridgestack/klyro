@@ -151,4 +151,92 @@ Before marking any task as complete:
 2. Run the full test suite with: `npm test`
 3. If test fail:
    - Analyz the failure output:
-   - Fix the code (no the tests, unless tests are inocorrect)  
+   - Fix the code (no the tests, unless tests are incorrect)  
+4. For API endpoints, including integration tests that verify:
+
+   - Sucess response with valid input
+   - Authentication requirements
+   - Edge cases
+
+
+## REST API Conventions
+
+All route handlers live under `src/app/api/` (locale-independent). Target: **Richardson Maturity Level 3** — Resources + HTTP verbs + HATEOAS links.
+
+### URLs
+- Plural nouns: `/api/bookings`, `/api/staff`, `/api/services`
+- Nested resources: `/api/branches/:id/staff`
+- No verbs in paths — the HTTP method is the verb
+- Kebab-case: `/api/booking-slots`
+
+### HTTP methods
+`GET` read · `POST` create · `PATCH` partial update · `PUT` full replace · `DELETE` remove
+
+### Status codes
+| Code | When |
+|------|------|
+| `200` | GET / PATCH / PUT succeeded |
+| `201` | POST created — add `Location` header |
+| `204` | DELETE succeeded |
+| `400` | Validation failed |
+| `401` | No session |
+| `404` | Not found (also use when RLS hides a row) |
+| `409` | Conflict (e.g. slot already taken) |
+| `500` | Unexpected — log to Sentry, never expose stack trace |
+
+### Response shape
+
+```jsonc
+// Single resource
+{ "data": { ...resource }, "_links": { "self": { "href": "/api/bookings/123", "method": "GET" } } }
+
+// Collection
+{ "data": [...], "meta": { "total": 42, "page": 1, "perPage": 20 }, "_links": { "self": {...}, "next": {...} } }
+
+// Error
+{ "error": { "code": "SLOT_TAKEN", "message": "Human-readable reason.", "field": "slotId" } }
+```
+
+Never return a naked object or array at the top level.
+
+### HATEOAS `_links`
+`self` is always required. Add conditional links for **currently available** actions only — a cancelled booking has no `cancel` link.
+
+```jsonc
+"_links": {
+  "self":   { "href": "/api/bookings/123", "method": "GET" },
+  "cancel": { "href": "/api/bookings/123", "method": "DELETE" },
+  "staff":  { "href": "/api/staff/xyz",   "method": "GET" }
+}
+```
+
+### Validation
+Define a Zod schema per route; parse at the top; return `400` + `field` on failure.
+
+```ts
+const Schema = z.object({ staffId: z.string().uuid(), slotStart: z.string().datetime() })
+const parsed = Schema.safeParse(await req.json())
+if (!parsed.success) {
+  const e = parsed.error.errors[0]
+  return NextResponse.json({ error: { code: 'VALIDATION_ERROR', message: e.message, field: e.path.join('.') } }, { status: 400 })
+}
+```
+
+### Auth & multi-tenancy
+- Never accept `business_id` from the client — derive it from the session.
+- RLS enforces data isolation; don't add manual `WHERE business_id = X` filters on top.
+
+### Error codes
+`UNAUTHORIZED` · `NOT_FOUND` · `VALIDATION_ERROR` · `SLOT_TAKEN` · `BOOKING_CONFLICT` · `INTERNAL_ERROR`
+
+---
+
+## Key constraints
+
+- `businesses.vertical` is a plain `text` field referencing keys in the registry — not a DB enum. Never create a migration to make it an enum.
+- Message templates are selected by `(type, channel, language, vertical)` — the unique index on `message_templates` enforces this.
+- 84 templates seeded (7 active verticals × 2 channels × 2 languages × 3 message types).
+- Dashboard is dark-mode only in v1. No light/dark toggle for the dashboard.
+- JetBrains Mono is only for booking confirmation codes. Inter everywhere else.
+
+---
