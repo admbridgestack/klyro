@@ -3,10 +3,44 @@
     "continue": "Continuar",
     "back": "Atrás",
     "cancel": "Cancelar",
-    "save": "Guardar"
+    "save": "Guardar",
+    "loading": "Cargando...",
+    "error": "Algo salió mal. Intenta de nuevo."
   },
   "landing": {
     "title": "Klyro",
     "tagline": "Tu negocio. Tus clientes. Tu marca."
+  },
+  "auth": {
+    "login": {
+      "title": "Bienvenido a Klyro",
+      "subtitle": "Inicia sesión para gestionar tu negocio",
+      "google": "Continuar con Google",
+      "apple": "Continuar con Apple",
+      "divider": "o continúa con email",
+      "emailPlaceholder": "tu@email.com",
+      "magicLinkButton": "Enviar enlace mágico",
+      "magicLinkSent": "Revisa tu email",
+      "magicLinkSentDesc": "Te enviamos un enlace para iniciar sesión. Revisa tu bandeja de entrada.",
+      "noAccount": "¿Primera vez? Solo ingresa tu email — crearemos tu cuenta automáticamente."
+    }
+  },
+  "dashboard": {
+    "nav": {
+      "dashboard": "Dashboard",
+      "agenda": "Agenda",
+      "team": "Equipo",
+      "branches": "Sucursales",
+      "services": "Servicios",
+      "settings": "Configuración",
+      "links": "Links"
+    },
+    "setup": {
+      "bannerTitle": "Configura tu negocio",
+      "bannerDesc": "Completa la configuración para comenzar a recibir citas.",
+      "bannerCta": "Comenzar configuración"
+    },
+    "title": "Dashboard",
+    "welcome": "Bienvenido"
   }
 }
