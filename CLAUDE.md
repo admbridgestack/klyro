@@ -88,6 +88,51 @@ Validated at startup by Zod in `src/lib/env.ts`. Adding a new env var requires u
 
 See `STATUS.md` for smoke test checklist and detailed phase notes. See `Klyro_Technical_PRD.md` for the full spec.
 
+## Git Workflow
+
+### Branch naming
+- Features: `feature/<task>-<brief-description>`
+- Bug fixes: `fix/<task>-<brief-description>`
+- Chores: `chore/<brief-description>`
+
+All branches cut from `main`. Never commit directly to `main`.
+
+### Conventional commits
+Format: `<type>(<scope>): <imperative summary>`
+
+| Type | When to use |
+|------|-------------|
+| `feat` | New feature or UI component |
+| `fix` | Bug fix |
+| `chore` | Deps, config, tooling — no production code |
+| `refactor` | Code restructure without behavior change |
+| `test` | Add/update tests |
+| `docs` | Documentation only |
+| `style` | Formatting, whitespace |
+| `ci` | CI/CD pipeline changes |
+
+Scopes: `auth` | `wizard` | `booking` | `dashboard` | `db` | `i18n` | `design-system` | `messaging`
+
+Examples:
+```
+feat(wizard): add step 1 business info form
+fix(auth): redirect to correct locale after OAuth callback
+chore(deps): bump supabase-js to 2.45
+test(wizard): add unit tests for step validation
+```
+
+### Atomic commits
+One logical change per commit — if reverting it leaves the app in a coherent state, it's atomic. Stage specific files; never `git add .` blindly. Migrations go in their own commit, separate from dependent UI code.
+
+### Pull requests
+After completing a task:
+1. Push branch: `git push -u origin <branch>`
+2. Open PR: `gh pr create` (the repo template auto-populates the body)
+3. Reviewers are auto-assigned via CODEOWNERS (`@jmayorga94`, `@jmendezrf`)
+4. Merge only after approval — prefer squash-merge to keep `main` history clean
+
+---
+
 ## Key constraints
 
 - `businesses.vertical` is a plain `text` field referencing keys in the registry — not a DB enum. Never create a migration to make it an enum.
@@ -95,3 +140,15 @@ See `STATUS.md` for smoke test checklist and detailed phase notes. See `Klyro_Te
 - 84 templates seeded (7 active verticals × 2 channels × 2 languages × 3 message types).
 - Dashboard is dark-mode only in v1. No light/dark toggle for the dashboard.
 - JetBrains Mono is only for booking confirmation codes. Inter everywhere else.
+
+---
+
+## Testing Requirements
+
+Before marking any task as complete:
+
+1. Write unit tests for new functionality
+2. Run the full test suite with: `npm test`
+3. If test fail:
+   - Analyz the failure output:
+   - Fix the code (no the tests, unless tests are inocorrect)  
