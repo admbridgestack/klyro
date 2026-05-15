@@ -14,6 +14,16 @@ export async function GET(
   const type = searchParams.get("type") as EmailOtpType | null;
   const next = searchParams.get("next") ?? `/${locale}/dashboard`;
 
+  // Supabase sends error params when the link is invalid or expired
+  const supabaseError = searchParams.get("error");
+  const errorDescription = searchParams.get("error_description");
+  if (supabaseError) {
+    const msg = errorDescription ?? supabaseError;
+    return NextResponse.redirect(
+      `${origin}/${locale}/login?error=${encodeURIComponent(msg)}`
+    );
+  }
+
   const supabase = await createClient();
 
   if (code) {
@@ -31,6 +41,6 @@ export async function GET(
   }
 
   return NextResponse.redirect(
-    `${origin}/${locale}/login?error=auth_error`
+    `${origin}/${locale}/login?error=${encodeURIComponent("auth_error")}`
   );
 }
