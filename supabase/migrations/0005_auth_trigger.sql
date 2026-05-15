@@ -16,7 +16,7 @@ begin
     ),
     new.raw_user_meta_data->>'avatar_url',
     'owner',
-    new.app_metadata->>'provider'
+    new.raw_app_meta_data->>'provider'
   )
   on conflict (id) do nothing;
   return new;
