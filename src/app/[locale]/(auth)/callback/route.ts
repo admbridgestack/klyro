@@ -12,7 +12,12 @@ export async function GET(
   const code = searchParams.get("code");
   const tokenHash = searchParams.get("token_hash");
   const type = searchParams.get("type") as EmailOtpType | null;
-  const next = searchParams.get("next") ?? `/${locale}/dashboard`;
+  const rawNext = searchParams.get("next") ?? `/${locale}/dashboard`;
+  // Reject protocol-relative URLs (//evil.com) and absolute URLs to prevent open redirect
+  const next =
+    rawNext.startsWith("/") && !rawNext.startsWith("//")
+      ? rawNext
+      : `/${locale}/dashboard`;
 
   // Supabase sends error params when the link is invalid or expired
   const supabaseError = searchParams.get("error");

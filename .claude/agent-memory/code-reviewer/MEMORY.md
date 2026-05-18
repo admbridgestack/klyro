@@ -1,0 +1,3 @@
+- [Project Architecture](project-architecture.md) — Klyro is a multi-tenant SaaS booking platform; Phase 0 done, Phase 1 built but not smoke-tested
+- [Security Patterns Found](security-patterns.md) — RLS boundary patterns, service role key usage on public pages, cookie transfer logic
+- [Convention Violations](convention-violations.md) — Hardcoded strings, inline CSS vars vs token classes, middleware pattern issues

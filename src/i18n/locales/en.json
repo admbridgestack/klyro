@@ -22,7 +22,8 @@
       "magicLinkButton": "Send magic link",
       "magicLinkSent": "Check your email",
       "magicLinkSentDesc": "We sent you a sign-in link. Check your inbox.",
-      "noAccount": "First time? Just enter your email — we'll create your account automatically."
+      "noAccount": "First time? Just enter your email — we'll create your account automatically.",
+      "emailRequired": "Email is required"
     }
   },
   "dashboard": {
@@ -33,14 +34,19 @@
       "branches": "Branches",
       "services": "Services",
       "settings": "Settings",
-      "links": "Links"
+      "links": "Links",
+      "signOut": "Sign out"
     },
     "setup": {
       "bannerTitle": "Set up your business",
       "bannerDesc": "Complete your setup to start receiving appointments.",
-      "bannerCta": "Start setup"
+      "bannerCta": "Start setup",
+      "checklistStep1": "Choose your vertical",
+      "checklistStep2": "Configure your business",
+      "checklistStep3": "Add your services"
     },
     "title": "Dashboard",
-    "welcome": "Welcome"
+    "welcome": "Welcome",
+    "placeholder": "Your dashboard will appear here in Phase 5."
   }
 }

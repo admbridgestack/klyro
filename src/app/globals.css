@@ -39,6 +39,20 @@
   /* typography */
   --font-sans: "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* shadcn/ui primitive aliases — maps generic tokens used in ui/ components to Klyro tokens */
+  --color-primary: #6d64fb;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #222246;
+  --color-secondary-foreground: #ffffff;
+  --color-background: #0a0a1f;
+  --color-foreground: #ffffff;
+  --color-muted: #222246;
+  --color-muted-foreground: #858599;
+  --color-destructive: #ef4444;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-input: #222246;
+  --color-ring: #6d64fb;
 }
 
 /* Borders & lines (not in @theme — used as CSS vars directly) */

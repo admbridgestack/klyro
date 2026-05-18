@@ -64,9 +64,9 @@
 
 **Manual setup completed:**
 - [x] `http://localhost:3000/callback` added to Supabase → Auth → Redirect URLs
-- [ ] `SUPABASE_SERVICE_ROLE_KEY` added to `klyro/.env.local`
-- [ ] Custom SMTP (Resend) configured in Supabase → Auth → SMTP Settings *(required to avoid free-tier rate limits)*
-- [ ] `GOOGLE_CLIENT_ID` + `GOOGLE_CLIENT_SECRET` configured for Google OAuth
+- [x] `SUPABASE_SERVICE_ROLE_KEY` added to `klyro/.env.local`
+- [x] Custom SMTP (Resend) configured in Supabase → Auth → SMTP Settings *(required to avoid free-tier rate limits)*
+- [x] `GOOGLE_CLIENT_ID` + `GOOGLE_CLIENT_SECRET` configured for Google OAuth
 
 ---
 

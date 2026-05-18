@@ -42,7 +42,7 @@ export async function signInWithMagicLink(
   formData: FormData
 ): Promise<{ error?: string; sent?: boolean }> {
   const email = formData.get("email")?.toString().trim();
-  if (!email) return { error: "Email requerido" };
+  if (!email) return { error: "emailRequired" };
 
   const supabase = await createClient();
   const { error } = await supabase.auth.signInWithOtp({
