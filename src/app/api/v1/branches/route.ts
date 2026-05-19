@@ -4,11 +4,10 @@ import { getOwnerBusinessId, AuthError, BusinessNotFoundError } from "@/lib/supa
 import { unauthorized, notFound, internalError, validationError, toErrorResponse } from "@/lib/api/errors";
 import { createBranchSchema } from "@/lib/schemas/branch";
 
-export async function GET(_req: NextRequest) {
+export async function GET() {
   const supabase = await createClient();
-  let businessId: string;
   try {
-    businessId = await getOwnerBusinessId(supabase);
+    await getOwnerBusinessId(supabase);
   } catch (e) {
     if (e instanceof AuthError) return unauthorized();
     if (e instanceof BusinessNotFoundError) return notFound("No business found");

@@ -24,31 +24,6 @@ function makeRequest(
   });
 }
 
-function makeSupabaseMock(overrides: Record<string, unknown> = {}) {
-  const defaultOps = {
-    data: null,
-    error: null,
-  };
-
-  const builder = {
-    select: vi.fn().mockReturnThis(),
-    eq: vi.fn().mockReturnThis(),
-    single: vi.fn().mockResolvedValue(defaultOps),
-    maybeSingle: vi.fn().mockResolvedValue(defaultOps),
-    insert: vi.fn().mockReturnThis(),
-    update: vi.fn().mockReturnThis(),
-    delete: vi.fn().mockReturnThis(),
-    ...overrides,
-  };
-
-  return {
-    auth: {
-      getUser: vi.fn().mockResolvedValue({ data: { user: null }, error: null }),
-    },
-    from: vi.fn().mockReturnValue(builder),
-    _builder: builder,
-  };
-}
 
 describe("POST /api/v1/businesses", () => {
   beforeEach(() => {
@@ -207,8 +182,7 @@ describe("GET /api/v1/branches — RLS tenant isolation", () => {
       }),
     } as never);
 
-    const req = makeRequest("http://localhost/api/v1/branches");
-    const res = await getBranches(req);
+    const res = await getBranches();
     expect(res.status).toBe(200);
 
     const json = await res.json();
@@ -228,8 +202,7 @@ describe("GET /api/v1/branches — RLS tenant isolation", () => {
       from: vi.fn(),
     } as never);
 
-    const req = makeRequest("http://localhost/api/v1/branches");
-    const res = await getBranches(req);
+    const res = await getBranches();
     expect(res.status).toBe(401);
   });
 });
@@ -240,15 +213,7 @@ describe("PUT /api/v1/staff/[id]/availability — atomic replace", () => {
   });
 
   it("deletes old slots then inserts new ones (replace semantics)", async () => {
-    const deleteEq = vi.fn().mockReturnThis();
-    const deleteFn = vi.fn().mockReturnThis();
-    const deleteBuilder = {
-      delete: deleteFn,
-      eq: deleteEq.mockResolvedValue({ error: null }),
-    };
-
     const insertFn = vi.fn().mockResolvedValue({ error: null });
-    const insertBuilder = { insert: insertFn };
 
     const staffBuilder = {
       select: vi.fn().mockReturnThis(),
