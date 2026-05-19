@@ -2,21 +2,21 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
+import { useWizard } from "@/lib/wizard/store";
 
 const COUNTDOWN_SECONDS = 4;
 
-export function DoneRedirect({
-  locale,
-  ctaLabel,
-  redirectTemplate,
-}: {
-  locale: string;
-  ctaLabel: string;
-  redirectTemplate: string;
-}) {
+export function DoneRedirect({ locale }: { locale: string }) {
+  const t = useTranslations("setup.done");
   const router = useRouter();
+  const resetWizard = useWizard((s) => s.resetWizard);
   const [seconds, setSeconds] = useState(COUNTDOWN_SECONDS);
+
+  useEffect(() => {
+    resetWizard();
+  }, [resetWizard]);
 
   useEffect(() => {
     if (seconds <= 0) {
@@ -27,16 +27,14 @@ export function DoneRedirect({
     return () => clearTimeout(timer);
   }, [seconds, locale, router]);
 
-  const label = redirectTemplate.replace("{seconds}", String(seconds));
-
   return (
     <div className="mt-8 flex flex-col items-center gap-4">
-      <p className="text-sm text-[var(--color-text-muted)]">{label}</p>
+      <p className="text-sm text-text-muted">{t("redirect", { seconds })}</p>
       <Button
         onClick={() => router.push(`/${locale}/dashboard`)}
-        className="bg-[var(--color-violet)] text-white hover:opacity-90"
+        className="bg-violet text-white hover:opacity-90"
       >
-        {ctaLabel}
+        {t("cta")}
       </Button>
     </div>
   );
