@@ -48,5 +48,22 @@
     "title": "Dashboard",
     "welcome": "Bienvenido",
     "placeholder": "Tu dashboard aparecerá aquí en la Fase 5."
+  },
+  "setup": {
+    "stepOf": "Paso {current} de {total}",
+    "step1": { "title": "¿Qué tipo de negocio tienes?" },
+    "step2": { "title": "Información de tu negocio" },
+    "step3": { "title": "Tu primera sucursal" },
+    "step4": { "title": "Tus servicios" },
+    "step5": { "title": "Tu equipo" },
+    "step6": { "title": "Horarios de atención" },
+    "step7": { "title": "Mensajería" },
+    "step8": { "title": "Revisa y confirma" },
+    "done": {
+      "title": "¡Listo!",
+      "subtitle": "Tu negocio está configurado y listo para recibir citas.",
+      "redirect": "Te llevamos al dashboard en {seconds} segundos…",
+      "cta": "Ir al dashboard"
+    }
   }
 }

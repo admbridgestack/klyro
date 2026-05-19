@@ -48,5 +48,22 @@
     "title": "Dashboard",
     "welcome": "Welcome",
     "placeholder": "Your dashboard will appear here in Phase 5."
+  },
+  "setup": {
+    "stepOf": "Step {current} of {total}",
+    "step1": { "title": "What kind of business do you have?" },
+    "step2": { "title": "Your business info" },
+    "step3": { "title": "Your first branch" },
+    "step4": { "title": "Your services" },
+    "step5": { "title": "Your team" },
+    "step6": { "title": "Working hours" },
+    "step7": { "title": "Messaging" },
+    "step8": { "title": "Review and confirm" },
+    "done": {
+      "title": "All set!",
+      "subtitle": "Your business is configured and ready to take bookings.",
+      "redirect": "Taking you to the dashboard in {seconds} seconds…",
+      "cta": "Go to dashboard"
+    }
   }
 }
