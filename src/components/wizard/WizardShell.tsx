@@ -59,10 +59,13 @@ export function WizardShell({
     return parts[setupIdx + 1] ?? "vertical";
   })();
 
+  const isDone = stepKey === "done";
   const stepIdx = Math.max(getStepIndex(stepKey), 0);
   const totalSteps = WIZARD_STEPS.length;
   const progress = ((stepIdx + 1) / totalSteps) * 100;
   const isFirstStep = stepIdx === 0;
+
+  if (isDone) return <>{children}</>;
 
   const handleBack = () => {
     const prev = prevStep(stepKey, locale);
@@ -86,11 +89,11 @@ export function WizardShell({
 
   return (
     <WizardShellContext.Provider value={{ setOnContinue, setCanContinue, setIsLoading }}>
-      <div className="flex min-h-screen flex-col bg-[var(--color-bg-base)]">
+      <div className="flex min-h-screen flex-col bg-bg-base">
         {/* Sticky header */}
-        <header className="sticky top-0 z-20 flex items-center justify-between border-b border-white/10 bg-[var(--color-bg-base)] px-6 py-4">
+        <header className="sticky top-0 z-20 flex items-center justify-between border-b border-white/10 bg-bg-base px-6 py-4">
           <Logo variant="lockup" theme="dark" className="h-8" />
-          <span className="text-sm text-[var(--color-text-muted)]">
+          <span className="text-sm text-text-muted">
             {t("setup.stepOf", { current: stepIdx + 1, total: totalSteps })}
           </span>
         </header>
@@ -98,7 +101,7 @@ export function WizardShell({
         {/* Progress bar */}
         <div className="h-1 bg-white/10">
           <div
-            className="h-full bg-[var(--color-violet)] transition-all duration-300"
+            className="h-full bg-violet transition-all duration-300"
             style={{ width: `${progress}%` }}
           />
         </div>
@@ -107,12 +110,12 @@ export function WizardShell({
         <main className="flex-1 overflow-y-auto">{children}</main>
 
         {/* Sticky footer */}
-        <footer className="sticky bottom-0 z-20 flex items-center justify-between border-t border-white/10 bg-[var(--color-bg-base)] px-6 py-4">
+        <footer className="sticky bottom-0 z-20 flex items-center justify-between border-t border-white/10 bg-bg-base px-6 py-4">
           <Button
             variant="ghost"
             onClick={handleBack}
             disabled={isFirstStep || isLoading}
-            className="text-[var(--color-text-muted)]"
+            className="text-text-muted"
           >
             <ChevronLeft className="mr-1 h-4 w-4" />
             {t("common.back")}
@@ -120,7 +123,7 @@ export function WizardShell({
           <Button
             onClick={handleContinue}
             disabled={!canContinue || isLoading}
-            className="bg-[var(--color-violet)] text-white hover:opacity-90"
+            className="bg-violet text-white hover:opacity-90"
           >
             {isLoading ? t("common.loading") : t("common.continue")}
           </Button>
