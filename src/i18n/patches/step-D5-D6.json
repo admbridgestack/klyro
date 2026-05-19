@@ -1,0 +1,68 @@
+{
+  "es": {
+    "setup": {
+      "step5": {
+        "title": "Tu equipo",
+        "subtitle": "Empieza contigo — podrás agregar más personas desde Configuración.",
+        "ownerCard": "Tu perfil",
+        "displayNameLabel": "Tu nombre",
+        "displayNamePlaceholder": "Ej. María García",
+        "slugLabel": "URL de perfil",
+        "slugPlaceholder": "maria-garcia",
+        "slugHint": "klyro.app/tu-negocio/{slug}",
+        "mvpNote": "Podrás agregar más miembros del equipo desde Configuración una vez completes el wizard.",
+        "errorDisplayNameRequired": "El nombre es requerido.",
+        "errorSlugInvalid": "Solo letras minúsculas, números y guiones (mín. 3 caracteres)."
+      },
+      "step6": {
+        "title": "Horarios de atención",
+        "subtitle": "Define los días y horas en que atiendes citas.",
+        "dayHeader": "Día",
+        "day0": "Domingo",
+        "day1": "Lunes",
+        "day2": "Martes",
+        "day3": "Miércoles",
+        "day4": "Jueves",
+        "day5": "Viernes",
+        "day6": "Sábado",
+        "startLabel": "Inicio",
+        "endLabel": "Fin",
+        "errorStartBeforeEnd": "La hora de inicio debe ser antes de la hora de fin.",
+        "errorAtLeastOneDay": "Activa al menos un día con horario válido."
+      }
+    }
+  },
+  "en": {
+    "setup": {
+      "step5": {
+        "title": "Your team",
+        "subtitle": "Start with yourself — you can add more people from Settings later.",
+        "ownerCard": "Your profile",
+        "displayNameLabel": "Your name",
+        "displayNamePlaceholder": "e.g. Maria Garcia",
+        "slugLabel": "Profile URL",
+        "slugPlaceholder": "maria-garcia",
+        "slugHint": "klyro.app/your-business/{slug}",
+        "mvpNote": "You can add more team members from Settings once you complete the wizard.",
+        "errorDisplayNameRequired": "Name is required.",
+        "errorSlugInvalid": "Only lowercase letters, numbers, and hyphens (min. 3 characters)."
+      },
+      "step6": {
+        "title": "Working hours",
+        "subtitle": "Set the days and times when you take appointments.",
+        "dayHeader": "Day",
+        "day0": "Sunday",
+        "day1": "Monday",
+        "day2": "Tuesday",
+        "day3": "Wednesday",
+        "day4": "Thursday",
+        "day5": "Friday",
+        "day6": "Saturday",
+        "startLabel": "Start",
+        "endLabel": "End",
+        "errorStartBeforeEnd": "Start time must be before end time.",
+        "errorAtLeastOneDay": "Enable at least one day with a valid schedule."
+      }
+    }
+  }
+}

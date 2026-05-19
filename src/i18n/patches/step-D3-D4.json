@@ -1,0 +1,134 @@
+{
+  "es": {
+    "setup": {
+      "step3": {
+        "title": "Tu primera sucursal",
+        "subtitle": "Define la información de tu primera ubicación.",
+        "fields": {
+          "name": "Nombre de la sucursal",
+          "namePlaceholder": "Ej. Sucursal Principal",
+          "slug": "URL de la sucursal",
+          "slugHint": "Solo letras minúsculas, números y guiones",
+          "address": "Dirección",
+          "addressPlaceholder": "Calle y número",
+          "city": "Ciudad",
+          "cityPlaceholder": "Ej. Tegucigalpa",
+          "country": "País",
+          "phone": "Teléfono",
+          "phonePlaceholder": "+504 XXXX-XXXX",
+          "phoneHint": "Formato E.164 (ej. +50422223333)",
+          "whatsapp": "WhatsApp",
+          "whatsappPlaceholder": "+504 XXXX-XXXX",
+          "whatsappHint": "Formato E.164 (ej. +50499998888)",
+          "timezone": "Zona horaria"
+        },
+        "countries": {
+          "HN": "Honduras",
+          "GT": "Guatemala",
+          "SV": "El Salvador",
+          "MX": "México",
+          "CO": "Colombia",
+          "AR": "Argentina",
+          "US": "Estados Unidos",
+          "CA": "Canadá"
+        },
+        "tz_tegucigalpa": "Tegucigalpa (GMT-6)",
+        "tz_guatemala": "Guatemala (GMT-6)",
+        "tz_salvador": "El Salvador (GMT-6)",
+        "tz_mexico": "Ciudad de México (GMT-6)",
+        "tz_bogota": "Bogotá (GMT-5)",
+        "tz_buenosaires": "Buenos Aires (GMT-3)",
+        "tz_newyork": "Nueva York (GMT-5)",
+        "tz_losangeles": "Los Ángeles (GMT-8)",
+        "tz_utc": "UTC"
+      },
+      "step4": {
+        "title": "Tus servicios",
+        "subtitle": "Agrega los servicios que ofreces. Podrás editarlos después.",
+        "columns": {
+          "name": "Nombre",
+          "duration": "Duración (min)",
+          "price": "Precio",
+          "currency": "Moneda",
+          "remove": "Eliminar"
+        },
+        "addRow": "Agregar servicio",
+        "namePlaceholder": "Ej. Corte de cabello",
+        "durationPlaceholder": "30",
+        "pricePlaceholder": "0.00",
+        "validation": {
+          "nameRequired": "El nombre es requerido",
+          "durationMin": "Mínimo 5 minutos",
+          "priceMin": "El precio no puede ser negativo"
+        },
+        "minServicesHint": "Agrega al menos un servicio para continuar."
+      }
+    }
+  },
+  "en": {
+    "setup": {
+      "step3": {
+        "title": "Your first branch",
+        "subtitle": "Set up the details for your first location.",
+        "fields": {
+          "name": "Branch name",
+          "namePlaceholder": "e.g. Main Branch",
+          "slug": "Branch URL",
+          "slugHint": "Lowercase letters, numbers, and hyphens only",
+          "address": "Address",
+          "addressPlaceholder": "Street and number",
+          "city": "City",
+          "cityPlaceholder": "e.g. Tegucigalpa",
+          "country": "Country",
+          "phone": "Phone",
+          "phonePlaceholder": "+504 XXXX-XXXX",
+          "phoneHint": "E.164 format (e.g. +50422223333)",
+          "whatsapp": "WhatsApp",
+          "whatsappPlaceholder": "+504 XXXX-XXXX",
+          "whatsappHint": "E.164 format (e.g. +50499998888)",
+          "timezone": "Timezone"
+        },
+        "countries": {
+          "HN": "Honduras",
+          "GT": "Guatemala",
+          "SV": "El Salvador",
+          "MX": "Mexico",
+          "CO": "Colombia",
+          "AR": "Argentina",
+          "US": "United States",
+          "CA": "Canada"
+        },
+        "tz_tegucigalpa": "Tegucigalpa (GMT-6)",
+        "tz_guatemala": "Guatemala (GMT-6)",
+        "tz_salvador": "El Salvador (GMT-6)",
+        "tz_mexico": "Mexico City (GMT-6)",
+        "tz_bogota": "Bogota (GMT-5)",
+        "tz_buenosaires": "Buenos Aires (GMT-3)",
+        "tz_newyork": "New York (GMT-5)",
+        "tz_losangeles": "Los Angeles (GMT-8)",
+        "tz_utc": "UTC"
+      },
+      "step4": {
+        "title": "Your services",
+        "subtitle": "Add the services you offer. You can edit these later.",
+        "columns": {
+          "name": "Name",
+          "duration": "Duration (min)",
+          "price": "Price",
+          "currency": "Currency",
+          "remove": "Remove"
+        },
+        "addRow": "Add service",
+        "namePlaceholder": "e.g. Haircut",
+        "durationPlaceholder": "30",
+        "pricePlaceholder": "0.00",
+        "validation": {
+          "nameRequired": "Name is required",
+          "durationMin": "Minimum 5 minutes",
+          "priceMin": "Price cannot be negative"
+        },
+        "minServicesHint": "Add at least one service to continue."
+      }
+    }
+  }
+}

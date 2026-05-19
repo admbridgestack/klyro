@@ -14,6 +14,7 @@ export const updateBusinessSchema = createBusinessSchema.partial().extend({
   sms_enabled: z.boolean().optional(),
   email_enabled: z.boolean().optional(),
   default_cancellation_hours: z.number().int().positive().optional(),
+  onboarding_completed: z.boolean().optional(),
 });
 
 export const checkSlugSchema = z.object({

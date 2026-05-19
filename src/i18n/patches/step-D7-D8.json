@@ -1,0 +1,98 @@
+{
+  "es": {
+    "setup": {
+      "step7": {
+        "title": "Mensajería y cancelaciones",
+        "subtitle": "Configura cómo te comunicarás con tus clientes.",
+        "whatsappLabel": "Número de WhatsApp",
+        "whatsappPlaceholder": "+50412345678",
+        "whatsappHelper": "Este es el número al que llegarán las notificaciones de citas.",
+        "smsLabel": "Activar notificaciones por SMS",
+        "emailLabel": "Activar notificaciones por email",
+        "cancellationLabel": "Horas mínimas para cancelar",
+        "cancellationHelper": "Tiempo mínimo antes de la cita en que el cliente puede cancelar.",
+        "cancellationUnit": "horas",
+        "errors": {
+          "whatsappRequired": "El número de WhatsApp es requerido.",
+          "whatsappFormat": "El número debe estar en formato E.164 (ej. +50412345678).",
+          "cancellationMin": "El mínimo es 1 hora.",
+          "cancellationMax": "El máximo es 168 horas (1 semana)."
+        }
+      },
+      "step8": {
+        "title": "Revisa y confirma",
+        "subtitle": "Verifica que todo esté correcto antes de crear tu negocio.",
+        "sectionBusiness": "Tu negocio",
+        "sectionBranch": "Tu sucursal",
+        "sectionServices": "Servicios",
+        "sectionTeam": "Equipo",
+        "sectionMessaging": "Mensajería",
+        "fieldName": "Nombre",
+        "fieldVertical": "Tipo de negocio",
+        "fieldCountry": "País",
+        "fieldCurrency": "Moneda",
+        "fieldCity": "Ciudad",
+        "fieldTimezone": "Zona horaria",
+        "fieldWhatsapp": "WhatsApp",
+        "fieldSms": "SMS",
+        "fieldEmail": "Email",
+        "fieldCancellation": "Cancelación mínima",
+        "cancellationHours": "{hours} horas",
+        "editLink": "Editar",
+        "staffOwner": "(propietario)",
+        "statusActive": "Activo",
+        "statusInactive": "Inactivo",
+        "confirmButton": "Confirmar y crear",
+        "confirmNote": "Disponible en Bloque E"
+      }
+    }
+  },
+  "en": {
+    "setup": {
+      "step7": {
+        "title": "Messaging & cancellations",
+        "subtitle": "Configure how you communicate with your clients.",
+        "whatsappLabel": "WhatsApp number",
+        "whatsappPlaceholder": "+50412345678",
+        "whatsappHelper": "This is the number that will receive appointment notifications.",
+        "smsLabel": "Enable SMS notifications",
+        "emailLabel": "Enable email notifications",
+        "cancellationLabel": "Minimum hours to cancel",
+        "cancellationHelper": "Minimum time before an appointment when a client can cancel.",
+        "cancellationUnit": "hours",
+        "errors": {
+          "whatsappRequired": "WhatsApp number is required.",
+          "whatsappFormat": "Number must be in E.164 format (e.g. +50412345678).",
+          "cancellationMin": "Minimum is 1 hour.",
+          "cancellationMax": "Maximum is 168 hours (1 week)."
+        }
+      },
+      "step8": {
+        "title": "Review and confirm",
+        "subtitle": "Verify everything looks correct before creating your business.",
+        "sectionBusiness": "Your business",
+        "sectionBranch": "Your branch",
+        "sectionServices": "Services",
+        "sectionTeam": "Team",
+        "sectionMessaging": "Messaging",
+        "fieldName": "Name",
+        "fieldVertical": "Business type",
+        "fieldCountry": "Country",
+        "fieldCurrency": "Currency",
+        "fieldCity": "City",
+        "fieldTimezone": "Timezone",
+        "fieldWhatsapp": "WhatsApp",
+        "fieldSms": "SMS",
+        "fieldEmail": "Email",
+        "fieldCancellation": "Min. cancellation",
+        "cancellationHours": "{hours} hours",
+        "editLink": "Edit",
+        "staffOwner": "(owner)",
+        "statusActive": "Active",
+        "statusInactive": "Inactive",
+        "confirmButton": "Confirm & create",
+        "confirmNote": "Available in Block E"
+      }
+    }
+  }
+}

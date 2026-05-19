@@ -1,7 +1,7 @@
 # Klyro — Build Status
 
-**Last updated:** 2026-05-18
-**Active phase:** Phase 2 — Setup Wizard (in progress, Blocks A + B done)
+**Last updated:** 2026-05-19
+**Active phase:** Phase 2 — Setup Wizard (in progress, Blocks A + B + D done)
 
 ---
 
@@ -11,7 +11,7 @@
 |-------|------|--------|-------|
 | 0 | Foundation | ✅ Done | All 12 tables, RLS, types, brand, CI |
 | 1 | Auth & Onboarding Shell | ✅ Done | Magic link confirmed working end-to-end |
-| 2 | Setup Wizard | 🟡 In progress | Blocks A + B done — wizard UI (C–G) next |
+| 2 | Setup Wizard | 🟡 In progress | Blocks A + B + D done — Steps 1 & 2 UI complete |
 | 3 | Public Booking Flow | ⬜ Not started | `/[biz]/[branch]/[staff]` |
 | 4 | Messaging Engine | ⬜ Not started | WhatsApp + email templates |
 | 5 | Owner Dashboard | ⬜ Not started | Full operational view |
@@ -89,18 +89,22 @@
 - Staff↔services no-op (no staff_services table in schema)
 - 19/19 tests passing (business creation, duplicate rejection, RLS auth guard, availability atomic replace)
 
-### Blocks C–G — Wizard UI, commit orchestrator, edit-after pages ⬜ Next up
+### Block D ✅ — Wizard Steps 1 & 2 UI
+- `src/lib/api/verticals.ts` — `getVerticals()` + `getVerticalDefaults(key)`
+- `src/lib/api/businesses.ts` — `checkSlug()`, `createBusiness()`, `getMyBusiness()`, `updateMyBusiness()`
+- `StepVertical` — 2×4 card grid, emoji + display name, fetches defaults on select, pre-seeds services
+- `StepBusiness` — name + slug (auto-gen + debounced availability check) + country/language/currency selects
+- Both steps wired to their page routes; i18n keys added to `es.json` + `en.json`
 
-Wizard steps (8 total):
-1. Vertical selection (reads from registry, pre-loads defaults)
-2. Business name + slug
+### Blocks E–G — Wizard Steps 3–8, commit orchestrator, edit-after pages ⬜ Next up
+
+Wizard steps remaining:
 3. Branch info (name, address, timezone)
 4. Services catalog (pre-seeded from vertical defaults, editable)
 5. Staff (at least one — the owner)
 6. Availability (weekly schedule per staff)
 7. Messaging channel (WhatsApp number, SMS, or email)
-8. Booking link preview
-9. Confirmation → sets `onboarding_completed = true`
+8. Review & confirm → sets `onboarding_completed = true`
 
 ---
 

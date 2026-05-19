@@ -1,6 +1,6 @@
 # Klyro — Task List
 
-**Last updated:** 2026-05-15
+**Last updated:** 2026-05-19
 
 Legend: ✅ Done · 🟡 In progress / built · ⬜ Not started · 🔴 Blocked
 
@@ -34,9 +34,11 @@ Legend: ✅ Done · 🟡 In progress / built · ⬜ Not started · 🔴 Blocked
 
 ## Phase 2 — Setup Wizard
 
-- [ ] Scaffold wizard shell: full-screen overlay + sticky header (step counter + progress bar) + sticky footer (Back / Continue)
-- [ ] Step 1 — Vertical selection: grid of cards from registry, 7 active + 1 disabled "other"
-- [ ] Step 2 — Business name + slug (auto-generated, editable, uniqueness check via server action)
+- [x] Scaffold wizard shell: full-screen overlay + sticky header (step counter + progress bar) + sticky footer (Back / Continue)
+- [x] API client: `src/lib/api/verticals.ts` — `getVerticals()`, `getVerticalDefaults(key)`
+- [x] API client: `src/lib/api/businesses.ts` — `checkSlug()`, `createBusiness()`, `getMyBusiness()`, `updateMyBusiness()`
+- [x] Step 1 — Vertical selection: 2×4 grid of emoji cards, fetches defaults on select, pre-seeds services in wizard store
+- [x] Step 2 — Business name + slug (auto-generated, debounced availability check, 400ms debounce) + country / language / currency selects
 - [ ] Step 3 — First branch: name, address, city, timezone picker
 - [ ] Step 4 — Services catalog: pre-seeded from vertical defaults, add/edit/remove rows
 - [ ] Step 5 — Staff: owner as first staff member (display name, slug)

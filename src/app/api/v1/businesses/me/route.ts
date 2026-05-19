@@ -67,6 +67,7 @@ export async function PATCH(req: NextRequest) {
     ...(d.sms_enabled !== undefined && { sms_enabled: d.sms_enabled }),
     ...(d.email_enabled !== undefined && { email_enabled: d.email_enabled }),
     ...(d.default_cancellation_hours !== undefined && { default_cancellation_hours: d.default_cancellation_hours }),
+    ...(d.onboarding_completed !== undefined && { onboarding_completed: d.onboarding_completed }),
   };
 
   const { data: updated, error } = await supabase

@@ -1,0 +1,94 @@
+{
+  "es": {
+    "setup": {
+      "step1": {
+        "title": "¿Qué tipo de negocio tienes?",
+        "subtitle": "Selecciona el tipo de negocio que mejor describe lo que ofreces.",
+        "selectPrompt": "Selecciona una categoría",
+        "loading": "Cargando tipos de negocio...",
+        "errorLoading": "No se pudieron cargar los tipos de negocio. Intenta de nuevo."
+      },
+      "step2": {
+        "title": "Información de tu negocio",
+        "subtitle": "Estos datos aparecerán en tu página de reservas.",
+        "namePlaceholder": "Ej. Barbería El Corte",
+        "nameLabel": "Nombre del negocio",
+        "slugLabel": "URL de tu negocio",
+        "slugPrefix": "klyro.app/",
+        "slugAvailable": "disponible",
+        "slugTaken": "no disponible",
+        "slugChecking": "verificando...",
+        "countryLabel": "País",
+        "languageLabel": "Idioma principal",
+        "currencyLabel": "Moneda",
+        "countries": {
+          "HN": "Honduras",
+          "GT": "Guatemala",
+          "SV": "El Salvador",
+          "MX": "México",
+          "CO": "Colombia",
+          "AR": "Argentina",
+          "US": "Estados Unidos"
+        },
+        "languages": {
+          "es": "Español",
+          "en": "English"
+        },
+        "currencies": {
+          "HNL": "HNL — Lempira hondureño",
+          "GTQ": "GTQ — Quetzal guatemalteco",
+          "USD": "USD — Dólar estadounidense",
+          "MXN": "MXN — Peso mexicano",
+          "COP": "COP — Peso colombiano",
+          "ARS": "ARS — Peso argentino"
+        }
+      }
+    }
+  },
+  "en": {
+    "setup": {
+      "step1": {
+        "title": "What kind of business do you have?",
+        "subtitle": "Select the category that best describes what you offer.",
+        "selectPrompt": "Select a category",
+        "loading": "Loading business types...",
+        "errorLoading": "Could not load business types. Please try again."
+      },
+      "step2": {
+        "title": "Your business info",
+        "subtitle": "This information will appear on your booking page.",
+        "namePlaceholder": "e.g. The Barber Studio",
+        "nameLabel": "Business name",
+        "slugLabel": "Your booking URL",
+        "slugPrefix": "klyro.app/",
+        "slugAvailable": "available",
+        "slugTaken": "not available",
+        "slugChecking": "checking...",
+        "countryLabel": "Country",
+        "languageLabel": "Primary language",
+        "currencyLabel": "Currency",
+        "countries": {
+          "HN": "Honduras",
+          "GT": "Guatemala",
+          "SV": "El Salvador",
+          "MX": "Mexico",
+          "CO": "Colombia",
+          "AR": "Argentina",
+          "US": "United States"
+        },
+        "languages": {
+          "es": "Español",
+          "en": "English"
+        },
+        "currencies": {
+          "HNL": "HNL — Honduran lempira",
+          "GTQ": "GTQ — Guatemalan quetzal",
+          "USD": "USD — US dollar",
+          "MXN": "MXN — Mexican peso",
+          "COP": "COP — Colombian peso",
+          "ARS": "ARS — Argentine peso"
+        }
+      }
+    }
+  }
+}
