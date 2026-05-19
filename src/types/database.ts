@@ -188,41 +188,53 @@ export type Database = {
         Row: {
           country: string
           created_at: string
+          default_cancellation_hours: number
           default_currency: string
           default_language: string
+          email_enabled: boolean
           id: string
           logo_url: string | null
           name: string
           onboarding_completed: boolean
           slug: string
+          sms_enabled: boolean
           updated_at: string
           vertical: string
+          whatsapp_number: string | null
         }
         Insert: {
           country?: string
           created_at?: string
+          default_cancellation_hours?: number
           default_currency?: string
           default_language?: string
+          email_enabled?: boolean
           id?: string
           logo_url?: string | null
           name: string
           onboarding_completed?: boolean
           slug: string
+          sms_enabled?: boolean
           updated_at?: string
           vertical: string
+          whatsapp_number?: string | null
         }
         Update: {
           country?: string
           created_at?: string
+          default_cancellation_hours?: number
           default_currency?: string
           default_language?: string
+          email_enabled?: boolean
           id?: string
           logo_url?: string | null
           name?: string
           onboarding_completed?: boolean
           slug?: string
+          sms_enabled?: boolean
           updated_at?: string
           vertical?: string
+          whatsapp_number?: string | null
         }
         Relationships: []
       }

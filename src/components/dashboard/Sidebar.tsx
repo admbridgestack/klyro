@@ -85,7 +85,7 @@ function SidebarContent({
   userInitial,
   closeSheet,
 }: SidebarProps & { closeSheet?: () => void }) {
-  useTranslations("dashboard.nav");
+  const t = useTranslations("dashboard.nav");
 
   return (
     <div className="flex h-full flex-col gap-4 p-4">
@@ -112,7 +112,7 @@ function SidebarContent({
             <button
               type="submit"
               className="rounded-lg p-1.5 text-[var(--color-text-muted)] hover:bg-[var(--color-bg-hover)] hover:text-[var(--color-text-primary)] transition-colors"
-              aria-label="Cerrar sesión"
+              aria-label={t("signOut")}
             >
               <LogOut className="h-4 w-4" />
             </button>

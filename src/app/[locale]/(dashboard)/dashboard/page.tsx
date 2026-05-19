@@ -76,11 +76,11 @@ export default async function DashboardPage({
 
           {/* Checklist preview */}
           <div className="mt-4 grid grid-cols-1 gap-2 border-t border-[var(--border-subtle)] pt-4 sm:grid-cols-3">
-            {[
-              "Elige tu vertical",
-              "Configura tu negocio",
-              "Agrega tus servicios",
-            ].map((step) => (
+            {([
+              t("setup.checklistStep1"),
+              t("setup.checklistStep2"),
+              t("setup.checklistStep3"),
+            ] as const).map((step) => (
               <div
                 key={step}
                 className="flex items-center gap-2 text-xs text-[var(--color-text-muted)]"
@@ -97,7 +97,7 @@ export default async function DashboardPage({
       {!needsSetup && (
         <div className="rounded-[var(--radius-card)] border border-[var(--border-subtle)] bg-[var(--color-bg-surface)] p-8 text-center">
           <p className="text-sm text-[var(--color-text-muted)]">
-            Tu dashboard aparecerá aquí en la Fase 5.
+            {t("placeholder")}
           </p>
         </div>
       )}

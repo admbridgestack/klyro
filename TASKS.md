@@ -1,6 +1,6 @@
 # Klyro — Task List
 
-**Last updated:** 2026-05-14
+**Last updated:** 2026-05-15
 
 Legend: ✅ Done · 🟡 In progress / built · ⬜ Not started · 🔴 Blocked
 
@@ -9,22 +9,36 @@ Legend: ✅ Done · 🟡 In progress / built · ⬜ Not started · 🔴 Blocked
 ## Immediate (before Phase 2)
 
 - [ ] 🔴 Add `SUPABASE_SERVICE_ROLE_KEY` to `klyro/.env.local`
-- [ ] Add `http://localhost:3000/auth/callback` to Supabase → Auth → Redirect URLs
-- [ ] Run `pnpm dev` and complete Phase 1 smoke test (see STATUS.md checklist)
+- [ ] Configure Resend SMTP in Supabase → Auth → SMTP Settings (host: `smtp.resend.com`, port: `465`, user: `resend`, password: Resend API key) — required to avoid free-tier email rate limits
+- [ ] Add `RESEND_API_KEY` to `klyro/.env.local`
 - [ ] Add `GOOGLE_CLIENT_ID` + `GOOGLE_CLIENT_SECRET` to `.env.local` (Google Cloud Console)
 - [ ] Enable Google OAuth in Supabase → Authentication → Providers → Google
 - [ ] Test Google OAuth sign-in end-to-end
-- [ ] Commit Phase 1 (`git commit -m "feat: Phase 1 — Auth & Onboarding Shell"`)
+- [ ] Run `nvm use 22` — project requires Node 22 LTS; Node 24 causes dev-server OOM crashes
+- [x] ~~Add `http://localhost:3000/auth/callback` to Supabase → Auth → Redirect URLs~~ → updated to `/callback`
+
+---
+
+## ✅ Phase 1 completed tasks
+
+- [x] DB trigger `0005_auth_trigger.sql` — fixed `app_metadata` → `raw_app_meta_data` (was crashing every signup)
+- [x] Callback URL fixed: `/auth/callback` → `/callback` (route group `(auth)` is URL-invisible)
+- [x] Root layout `<html>`/`<body>` — moved to `app/layout.tsx` for Next.js 16 compliance
+- [x] Callback route handles `?error=` redirects from Supabase (expired/invalid links)
+- [x] Production logo deployed — `public/klyro_logo_w.png` via `next/image` in `Logo.tsx`
+- [x] CI fixed — pnpm version conflict + `ERR_PNPM_IGNORED_BUILDS` resolved
+- [x] Dev server heap capped at 4 GB (`NODE_OPTIONS` in `package.json dev` script)
+- [x] Magic link confirmed working end-to-end
 
 ---
 
 ## Phase 2 — Setup Wizard
 
-- [ ] Scaffold wizard shell: modal + sticky header (progress bar) + sticky footer (Back / Continue)
+- [ ] Scaffold wizard shell: full-screen overlay + sticky header (step counter + progress bar) + sticky footer (Back / Continue)
 - [ ] Step 1 — Vertical selection: grid of cards from registry, 7 active + 1 disabled "other"
-- [ ] Step 2 — Business name + slug (auto-generated, editable, uniqueness check)
+- [ ] Step 2 — Business name + slug (auto-generated, editable, uniqueness check via server action)
 - [ ] Step 3 — First branch: name, address, city, timezone picker
-- [ ] Step 4 — Services catalog: pre-seeded from vertical, add/edit/remove rows
+- [ ] Step 4 — Services catalog: pre-seeded from vertical defaults, add/edit/remove rows
 - [ ] Step 5 — Staff: owner as first staff member (display name, slug)
 - [ ] Step 6 — Availability: weekly grid (Mon–Sun, open/close times per day)
 - [ ] Step 7 — Messaging channel: WhatsApp number input (primary), email fallback
@@ -70,7 +84,6 @@ Legend: ✅ Done · 🟡 In progress / built · ⬜ Not started · 🔴 Blocked
 - [ ] Confirmation message fires immediately on booking
 - [ ] 24h reminder: scheduled via `messages.scheduled_at`, dispatched by Edge Function
 - [ ] Add `WHATSAPP_PHONE_NUMBER_ID` + `WHATSAPP_ACCESS_TOKEN` to env
-- [ ] Add `RESEND_API_KEY` to env
 - [ ] Unit test: MessageRouter selects correct template for each vertical × channel combination
 - [ ] Typecheck + lint pass
 - [ ] Commit Phase 4
@@ -127,7 +140,7 @@ Legend: ✅ Done · 🟡 In progress / built · ⬜ Not started · 🔴 Blocked
 - [ ] Configure `klyro.app` DNS on Cloudflare
 - [ ] Deploy to Vercel (connect repo, set production env vars)
 - [ ] Set Supabase Site URL to `https://klyro.app`
-- [ ] Add `https://klyro.app/auth/callback` to Supabase Redirect URLs
+- [ ] Add `https://klyro.app/callback` to Supabase Redirect URLs
 - [ ] Enable Google OAuth with production credentials
 - [ ] Onboard pioneer business #1 (barbershop)
 - [ ] Onboard pioneer businesses #2–6 (barbershops)

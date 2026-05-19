@@ -2,6 +2,7 @@ import createIntlMiddleware from "next-intl/middleware";
 import { createServerClient } from "@supabase/ssr";
 import { type NextRequest, NextResponse } from "next/server";
 import { routing } from "@/i18n/routing";
+import { env } from "@/lib/env";
 
 const handleI18n = createIntlMiddleware(routing);
 
@@ -13,6 +14,7 @@ const DASHBOARD_PATHS = [
   "/services",
   "/settings",
   "/links",
+  "/setup",
 ];
 const AUTH_PATHS = ["/login", "/signup"];
 
@@ -31,8 +33,8 @@ export async function middleware(request: NextRequest) {
   // Refresh the Supabase session on every request
   let supabaseResponse = NextResponse.next({ request });
   const supabase = createServerClient(
-    process.env["NEXT_PUBLIC_SUPABASE_URL"]!,
-    process.env["NEXT_PUBLIC_SUPABASE_ANON_KEY"]!,
+    env.NEXT_PUBLIC_SUPABASE_URL,
+    env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
     {
       cookies: {
         getAll() {

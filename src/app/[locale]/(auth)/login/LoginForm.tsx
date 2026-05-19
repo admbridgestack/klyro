@@ -128,7 +128,9 @@ export function LoginForm() {
         </div>
 
         {magicState.error && (
-          <p className="text-xs text-[var(--color-danger)]">{magicState.error}</p>
+          <p className="text-xs text-[var(--color-danger)]">
+            {magicState.error === "emailRequired" ? t("emailRequired") : magicState.error}
+          </p>
         )}
 
         <Button

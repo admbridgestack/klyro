@@ -5,7 +5,9 @@ import { createClient } from "@/lib/supabase/server";
 
 function callbackUrl() {
   const base = process.env["NEXT_PUBLIC_APP_URL"] ?? "http://localhost:3000";
-  return `${base}/auth/callback`;
+  // Route is at app/[locale]/(auth)/callback — URL is /{locale}/callback,
+  // not /auth/callback. Use /callback so next-intl adds the locale prefix.
+  return `${base}/callback`;
 }
 
 export async function signInWithGoogle() {
@@ -40,7 +42,7 @@ export async function signInWithMagicLink(
   formData: FormData
 ): Promise<{ error?: string; sent?: boolean }> {
   const email = formData.get("email")?.toString().trim();
-  if (!email) return { error: "Email requerido" };
+  if (!email) return { error: "emailRequired" };
 
   const supabase = await createClient();
   const { error } = await supabase.auth.signInWithOtp({

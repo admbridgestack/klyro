@@ -22,7 +22,8 @@
       "magicLinkButton": "Enviar enlace mágico",
       "magicLinkSent": "Revisa tu email",
       "magicLinkSentDesc": "Te enviamos un enlace para iniciar sesión. Revisa tu bandeja de entrada.",
-      "noAccount": "¿Primera vez? Solo ingresa tu email — crearemos tu cuenta automáticamente."
+      "noAccount": "¿Primera vez? Solo ingresa tu email — crearemos tu cuenta automáticamente.",
+      "emailRequired": "El email es requerido"
     }
   },
   "dashboard": {
@@ -33,14 +34,36 @@
       "branches": "Sucursales",
       "services": "Servicios",
       "settings": "Configuración",
-      "links": "Links"
+      "links": "Links",
+      "signOut": "Cerrar sesión"
     },
     "setup": {
       "bannerTitle": "Configura tu negocio",
       "bannerDesc": "Completa la configuración para comenzar a recibir citas.",
-      "bannerCta": "Comenzar configuración"
+      "bannerCta": "Comenzar configuración",
+      "checklistStep1": "Elige tu vertical",
+      "checklistStep2": "Configura tu negocio",
+      "checklistStep3": "Agrega tus servicios"
     },
     "title": "Dashboard",
-    "welcome": "Bienvenido"
+    "welcome": "Bienvenido",
+    "placeholder": "Tu dashboard aparecerá aquí en la Fase 5."
+  },
+  "setup": {
+    "stepOf": "Paso {current} de {total}",
+    "step1": { "title": "¿Qué tipo de negocio tienes?" },
+    "step2": { "title": "Información de tu negocio" },
+    "step3": { "title": "Tu primera sucursal" },
+    "step4": { "title": "Tus servicios" },
+    "step5": { "title": "Tu equipo" },
+    "step6": { "title": "Horarios de atención" },
+    "step7": { "title": "Mensajería" },
+    "step8": { "title": "Revisa y confirma" },
+    "done": {
+      "title": "¡Listo!",
+      "subtitle": "Tu negocio está configurado y listo para recibir citas.",
+      "redirect": "Te llevamos al dashboard en {seconds} segundos…",
+      "cta": "Ir al dashboard"
+    }
   }
 }

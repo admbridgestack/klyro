@@ -1,5 +1,4 @@
-// NOTE: The cat mark is a geometric placeholder — the production SVG mascot needs
-// a follow-up design pass once brand assets are available. The wordmark is correct.
+import Image from "next/image";
 
 type LogoVariant = "mark" | "wordmark" | "lockup";
 type LogoTheme = "dark" | "light";
@@ -10,8 +9,7 @@ interface LogoProps {
   className?: string;
 }
 
-// Geometric placeholder: rounded square with violet "k" + white check on navy bg.
-// Swap this path set for the real cat mascot paths when the SVG is ready.
+// Geometric placeholder — swap for dedicated mark asset when available.
 function CatMark({ theme }: { theme: LogoTheme }) {
   const bodyFill = theme === "dark" ? "url(#grad-brand)" : "#14143A";
 
@@ -30,25 +28,13 @@ function CatMark({ theme }: { theme: LogoTheme }) {
           <stop offset="100%" stopColor="#14143A" />
         </linearGradient>
       </defs>
-
-      {/* Body: rounded square */}
       <rect x="2" y="6" width="36" height="32" rx="10" fill={bodyFill} />
-
-      {/* Ears: two violet triangles at top */}
       <polygon points="8,6 4,0 12,0" fill="#6D64FB" />
       <polygon points="32,6 28,0 36,0" fill="#6D64FB" />
-
-      {/* Eyes: two small white dots (closed/content) */}
       <ellipse cx="14" cy="17" rx="2.5" ry="1.5" fill="#FFFFFF" opacity="0.9" />
       <ellipse cx="26" cy="17" rx="2.5" ry="1.5" fill="#FFFFFF" opacity="0.9" />
-
-      {/* Nose */}
       <path d="M18.5 22 L20 23.5 L21.5 22 L20 21 Z" fill="#6D64FB" />
-
-      {/* Collar */}
       <rect x="6" y="29" width="28" height="3.5" rx="1.75" fill="#6D64FB" />
-
-      {/* Check mark on chest — the product metaphor */}
       <path
         d="M14 21.5 L18 25.5 L26 17.5"
         stroke="#FFFFFF"
@@ -60,7 +46,7 @@ function CatMark({ theme }: { theme: LogoTheme }) {
   );
 }
 
-// Wordmark: "klyro" — "k" in violet, "lyro" in primary/navy
+// Wordmark placeholder — swap for dedicated wordmark asset when available.
 function Wordmark({ theme }: { theme: LogoTheme }) {
   const lyroColor = theme === "dark" ? "#FFFFFF" : "#14143A";
 
@@ -116,11 +102,17 @@ export function Logo({ variant = "lockup", theme = "dark", className }: LogoProp
     );
   }
 
-  // lockup: mark + wordmark side by side
+  // lockup: production PNG asset
   return (
-    <span className={`inline-flex items-center gap-2 ${className ?? ""}`} aria-label="Klyro">
-      <CatMark theme={theme} />
-      <Wordmark theme={theme} />
+    <span className={`inline-flex items-center ${className ?? ""}`} aria-label="Klyro">
+      <Image
+        src="/klyro_logo_w.png"
+        alt="Klyro"
+        width={280}
+        height={102}
+        priority
+      
+      />
     </span>
   );
 }

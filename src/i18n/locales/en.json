@@ -22,7 +22,8 @@
       "magicLinkButton": "Send magic link",
       "magicLinkSent": "Check your email",
       "magicLinkSentDesc": "We sent you a sign-in link. Check your inbox.",
-      "noAccount": "First time? Just enter your email — we'll create your account automatically."
+      "noAccount": "First time? Just enter your email — we'll create your account automatically.",
+      "emailRequired": "Email is required"
     }
   },
   "dashboard": {
@@ -33,14 +34,36 @@
       "branches": "Branches",
       "services": "Services",
       "settings": "Settings",
-      "links": "Links"
+      "links": "Links",
+      "signOut": "Sign out"
     },
     "setup": {
       "bannerTitle": "Set up your business",
       "bannerDesc": "Complete your setup to start receiving appointments.",
-      "bannerCta": "Start setup"
+      "bannerCta": "Start setup",
+      "checklistStep1": "Choose your vertical",
+      "checklistStep2": "Configure your business",
+      "checklistStep3": "Add your services"
     },
     "title": "Dashboard",
-    "welcome": "Welcome"
+    "welcome": "Welcome",
+    "placeholder": "Your dashboard will appear here in Phase 5."
+  },
+  "setup": {
+    "stepOf": "Step {current} of {total}",
+    "step1": { "title": "What kind of business do you have?" },
+    "step2": { "title": "Your business info" },
+    "step3": { "title": "Your first branch" },
+    "step4": { "title": "Your services" },
+    "step5": { "title": "Your team" },
+    "step6": { "title": "Working hours" },
+    "step7": { "title": "Messaging" },
+    "step8": { "title": "Review and confirm" },
+    "done": {
+      "title": "All set!",
+      "subtitle": "Your business is configured and ready to take bookings.",
+      "redirect": "Taking you to the dashboard in {seconds} seconds…",
+      "cta": "Go to dashboard"
+    }
   }
 }
