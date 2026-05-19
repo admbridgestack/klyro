@@ -1,5 +1,3 @@
-"use client";
-
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import type { VerticalKey } from "@/lib/verticals/registry";
@@ -78,6 +76,17 @@ export const useWizard = create<WizardStore>()(
       updateCommit: (c) => set((s) => ({ commit: { ...s.commit, ...c } })),
       resetWizard: () => set(INITIAL_STATE),
     }),
-    { name: "klyro.wizard.v1" }
+    {
+      name: "klyro.wizard.v1",
+      partialize: (state) => ({
+        vertical: state.vertical,
+        business: state.business,
+        branch: state.branch,
+        services: state.services,
+        staff: state.staff,
+        messaging: state.messaging,
+        commit: state.commit,
+      }),
+    }
   )
 );

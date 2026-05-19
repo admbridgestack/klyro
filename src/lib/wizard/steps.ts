@@ -76,6 +76,7 @@ export function prevStep(key: string, locale: string): string | null {
   return step ? `/${locale}${step.route}` : null;
 }
 
+// Review step (last) has completionCheck: () => false by design — it completes via commit, not state.
 export function canFinish(state: WizardState): boolean {
   return WIZARD_STEPS.slice(0, -1).every((s) => s.completionCheck(state));
 }
