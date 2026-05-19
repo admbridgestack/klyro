@@ -1,7 +1,7 @@
 # Klyro — Build Status
 
-**Last updated:** 2026-05-15
-**Active phase:** Phase 1 complete — Phase 2 next
+**Last updated:** 2026-05-18
+**Active phase:** Phase 2 — Setup Wizard (in progress, Blocks A + B done)
 
 ---
 
@@ -11,7 +11,7 @@
 |-------|------|--------|-------|
 | 0 | Foundation | ✅ Done | All 12 tables, RLS, types, brand, CI |
 | 1 | Auth & Onboarding Shell | ✅ Done | Magic link confirmed working end-to-end |
-| 2 | Setup Wizard | ⬜ Not started | 12-step wizard, vertical selection |
+| 2 | Setup Wizard | 🟡 In progress | Blocks A + B done — wizard UI (C–G) next |
 | 3 | Public Booking Flow | ⬜ Not started | `/[biz]/[branch]/[staff]` |
 | 4 | Messaging Engine | ⬜ Not started | WhatsApp + email templates |
 | 5 | Owner Dashboard | ⬜ Not started | Full operational view |
@@ -70,11 +70,28 @@
 
 ---
 
-## Phase 2 — Setup Wizard (next up)
+## Phase 2 — Setup Wizard 🟡
 
-**Goal:** Owner completes a 12-step wizard and DB shows a fully configured business.
+**Goal:** Owner completes an 8-step wizard and DB shows a fully configured business.
 
-Key steps:
+### Block A ✅ — Schemas, API client, owner helper
+- Zod v4 schemas: business, branch, service, staff, availability
+- `apiFetch<T>` typed client wrapper + `ApiError` class
+- `getOwnerBusinessId()` with `AuthError` / `BusinessNotFoundError`
+- `toErrorResponse()` + convenience error helpers
+- 4/4 unit tests passing
+
+### Block B ✅ — REST endpoints `/api/v1/*`
+- 17 route files across: verticals, businesses, branches, services, staff, availability
+- DB migration 0007: channel pref columns on businesses table
+- All routes: HATEOAS `_links`, zod-validated bodies, RLS-scoped via session
+- Staff invite stub returns 501 (real email Phase 4)
+- Staff↔services no-op (no staff_services table in schema)
+- 19/19 tests passing (business creation, duplicate rejection, RLS auth guard, availability atomic replace)
+
+### Blocks C–G — Wizard UI, commit orchestrator, edit-after pages ⬜ Next up
+
+Wizard steps (8 total):
 1. Vertical selection (reads from registry, pre-loads defaults)
 2. Business name + slug
 3. Branch info (name, address, timezone)

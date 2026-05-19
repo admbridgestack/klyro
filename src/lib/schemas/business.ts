@@ -13,6 +13,7 @@ export const updateBusinessSchema = createBusinessSchema.partial().extend({
   whatsapp_number: z.string().optional().nullable(),
   sms_enabled: z.boolean().optional(),
   email_enabled: z.boolean().optional(),
+  default_cancellation_hours: z.number().int().positive().optional(),
 });
 
 export const checkSlugSchema = z.object({
